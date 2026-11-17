@@ -1,0 +1,528 @@
+:root {
+  /* Deep forest as the brand anchor, marigold as the one warm accent,
+     coral reserved only for emergency/urgent moments so it stays meaningful. */
+  --forest: #17332a;
+  --forest-deep: #0f2620;
+  --moss: #5c8a6e;
+  --moss-light: #dcebe0;
+  --marigold: #e2a63b;
+  --marigold-deep: #b9822a;
+  --coral: #d9583f;
+  --coral-light: #fbe6e1;
+  --paper: #f6f2e9;
+  --paper-raised: #ffffff;
+  --line: #e3ddcb;
+  --ink: #1c231f;
+  --ink-soft: #5b6259;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--forest);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--forest);
+  margin-top: 0;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--forest);
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 3px solid var(--marigold);
+}
+
+.navbar .brand {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar a, .navbar button.link {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.navbar a:hover, .navbar button.link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* ---------- Layout ---------- */
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 18px 60px;
+}
+
+.card {
+  background: var(--paper-raised);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  border: 1px solid var(--line);
+}
+
+.card + .card {
+  margin-top: 16px;
+}
+
+/* ---------- Hero panel (dashboard greeting) ---------- */
+
+.hero-panel {
+  background: var(--forest);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-panel h1 {
+  color: #fff;
+  font-size: 1.9rem;
+  margin-bottom: 6px;
+}
+
+.hero-panel p {
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  max-width: 480px;
+}
+
+.hero-mark {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3.4rem;
+  opacity: 0.18;
+}
+
+/* ---------- Action tiles (replaces plain identical cards) ---------- */
+
+.tile-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+
+
+.tile {
+  display: block;
+  text-decoration: none;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.tile:hover {
+  border-color: var(--moss);
+  transform: translateY(-2px);
+}
+
+.tile .tile-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.tile.tile-a .tile-icon { background: var(--moss-light); }
+.tile.tile-b .tile-icon { background: #fdecd2; }
+.tile.tile-c .tile-icon { background: var(--coral-light); }
+
+.tile h3 {
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.tile p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+/* ---------- Forms ---------- */
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--moss);
+  background: #fff;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--forest-deep);
+}
+
+.btn-danger {
+  background: var(--coral);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #c04a34;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--forest);
+  color: var(--forest);
+}
+
+.btn-outline:hover {
+  background: var(--moss-light);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Feedback ---------- */
+
+.error-text {
+  color: #9a2f1f;
+  background: var(--coral-light);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+  border: 1px solid #f0c3b8;
+}
+
+.success-text {
+  color: #2c5f3f;
+  background: var(--moss-light);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+  border: 1px solid #c3ddc9;
+}
+
+/* ---------- Auth pages ---------- */
+
+.auth-page {
+  max-width: 420px;
+  margin: 36px auto;
+}
+
+.auth-page .card {
+  border-top: 4px solid var(--marigold);
+}
+
+.tab-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  background: var(--paper);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.tab-row button {
+  flex: 1;
+  padding: 9px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tab-row button.active {
+  background: var(--forest);
+  color: #fff;
+}
+
+/* ---------- Stat boxes (admin overview) ---------- */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+
+
+.stat-box {
+  text-align: center;
+  padding: 22px 18px;
+}
+
+.stat-box .num {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--marigold-deep);
+}
+
+/* ---------- Clinic list items ---------- */
+
+.clinic-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: var(--paper);
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-available {
+  background: var(--moss-light);
+  color: #2c5f3f;
+}
+
+.badge-unavailable {
+  background: var(--coral-light);
+  color: #9a2f1f;
+}
+
+/* ---------- Map ---------- */
+
+.map-wrap {
+  height: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+}
+
+/* ---------- Emergency banner ---------- */
+
+.emergency-banner {
+  background: var(--coral);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.emergency-banner span {
+  font-weight: 500;
+}
+
+.emergency-banner a {
+  color: #fff;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.emergency-banner a:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ---------- Tables ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.muted {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.status-pill {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.status-pending { background: #fbe9c6; color: #8a6600; }
+.status-accepted { background: #d9edf7; color: #175a75; }
+.status-completed { background: var(--moss-light); color: #2c5f3f; }
+.status-cancelled { background: #ececec; color: #666; }
+
+/* ---------- Orientation-aware layout ----------
+   On phones (narrow screens, the Capacitor app is locked to portrait - see
+   README) content stacks in a single column, full-width, easy to scroll and
+   tap. On wider desktop/laptop screens, layouts spread into multi-column
+   grids to use the extra horizontal space. This is handled by width, which
+   naturally matches portrait phones vs landscape-ish wide desktop windows. */
+@media (min-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .tile-row, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    padding: 24px 20px;
+  }
+
+  .hero-mark {
+    display: none; /* keeps the greeting text from crowding on narrow phone screens */
+  }
+}
